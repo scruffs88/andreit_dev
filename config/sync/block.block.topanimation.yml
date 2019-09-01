@@ -1,0 +1,25 @@
+uuid: b12447a1-8d29-447a-b222-f5ea4bef87ef
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:02affd71-c12e-4307-b5e2-ab8b958b7cbc'
+  module:
+    - block_content
+  theme:
+    - andreit
+id: topanimation
+theme: andreit
+region: header_top
+weight: 0
+provider: null
+plugin: 'block_content:02affd71-c12e-4307-b5e2-ab8b958b7cbc'
+settings:
+  id: 'block_content:02affd71-c12e-4307-b5e2-ab8b958b7cbc'
+  label: 'Top Animation'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -9,7 +9,7 @@ _core:
 id: andreit_local_tasks
 theme: andreit
 region: header
-weight: -2
+weight: -4
 provider: null
 plugin: local_tasks_block
 settings:

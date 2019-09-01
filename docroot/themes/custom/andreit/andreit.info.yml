@@ -8,6 +8,7 @@ type: theme
 base theme: radix
 
 regions:
+  header_top: Header Top
   navbar_branding: Navbar branding
   navbar_left:  Navbar left
   navbar_right: Navbar right

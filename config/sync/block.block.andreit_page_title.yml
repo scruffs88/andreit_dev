@@ -10,8 +10,8 @@ _core:
   default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
 id: andreit_page_title
 theme: andreit
-region: content
-weight: -3
+region: header
+weight: 0
 provider: null
 plugin: page_title_block
 settings:

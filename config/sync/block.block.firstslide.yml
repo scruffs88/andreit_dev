@@ -1,0 +1,31 @@
+uuid: 9a2f2b9a-75bd-409f-b62b-2709faa85f97
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d07d5f53-33da-40d1-b19e-e720347d5815'
+  module:
+    - block_content
+    - system
+  theme:
+    - andreit
+id: firstslide
+theme: andreit
+region: content
+weight: -4
+provider: null
+plugin: 'block_content:d07d5f53-33da-40d1-b19e-e720347d5815'
+settings:
+  id: 'block_content:d07d5f53-33da-40d1-b19e-e720347d5815'
+  label: 'First Slide'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

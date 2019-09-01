@@ -5,69 +5,93 @@
  */
 #}
 <div class="page">
-{#{% embed '@radix/navbar/navbar.twig' with {
-  placement: 'sticky-top',
-  container: 'fixed',
-  color: 'light',
-  utility_classes: ['bg-light'],
-} %}
-
-  {% block branding %}
-    {% if page.navbar_branding %}
-      {{ page.navbar_branding }}
-    {% endif %}
-  {% endblock %}
-
-  {% block left %}
-    {% if page.navbar_left %}
-      <div class="mr-auto">
-        {{ page.navbar_left }}
-      </div>
-    {% endif %}
-  {% endblock %}
-
-  {% block right %}
-    {% if page.navbar_right %}
-      {{ page.navbar_right }}
-    {% endif %}
-  {% endblock %}
-{% endembed %}#}
-
-<main class="pt-5 pb-5">
-  {% if page.header %}
-    <header class="page__header mb-3">
-      <div class="container">
-        {{ page.header }}
-      </div>
+  {% if page.header_top %}
+    <header class="page__header-top">
+            {{ page.header_top }}
     </header>
   {% endif %}
+  {#{% embed '@radix/navbar/navbar.twig' with {
+    placement: 'sticky-top',
+    container: 'fixed',
+    color: 'light',
+    utility_classes: ['bg-light'],
+  } %}
 
-  {% if page.content %}
-    <div class="page__content">
-      <div class="container">
-        {{ page.content }}
-      </div>
-    </div>
-  {% endif %}
-
-  {% if page.slide1 %}
-    <div class="slides">
-      <section id="slide1" class="vl-slides">{{ page.slide1 }}</section>
-      {% if page.slide2 %}
-        <section id="slide2" class="vl-slides">{{ page.slide2 }}</section>
+    {% block branding %}
+      {% if page.navbar_branding %}
+        {{ page.navbar_branding }}
       {% endif %}
-    </div>
-  {% endif %}
+    {% endblock %}
 
-</main>
+    {% block left %}
+      {% if page.navbar_left %}
+        <div class="mr-auto">
+          {{ page.navbar_left }}
+        </div>
+      {% endif %}
+    {% endblock %}
 
-{% if page.footer %}
-  <footer class="page__footer">
-    <div class="container">
-      <div class="d-flex justify-content-md-between align-items-md-center">
-        {{ page.footer }}
+    {% block right %}
+      {% if page.navbar_right %}
+        {{ page.navbar_right }}
+      {% endif %}
+    {% endblock %}
+  {% endembed %}#}
+
+  <main class="pt-5 pb-5">
+    {% if page.header %}
+      <div class="page__header mb-3">
+        <div class="container">
+          {{ page.header }}
+        </div>
       </div>
-    </div>
-  </footer>
-{% endif %}
+    {% endif %}
+
+    {% if page.content %}
+      <div class="slides">
+        <section id="slide0" class="vl-slides">
+          <div class="page__content">
+            <div class="container-fluid">
+              <div class="row">
+                {{ page.content }}
+              </div>
+            </div>
+          </div>
+        </section>
+        {% if page.slide1 %}
+          <section id="slide1" class="vl-slides">
+            <div class="page__slide1">
+              <div class="container-fluid">
+                <div class="row">
+                  {{ page.slide1 }}
+                </div>
+              </div>
+            </div>
+          </section>
+        {% endif %}
+        {% if page.slide2 %}
+          <section id="slide2" class="vl-slides">
+            <div class="page__slide2">
+              <div class="container-fluid">
+                <div class="row">
+                  {{ page.slide2 }}
+                </div>
+              </div>
+            </div>
+          </section>
+        {% endif %}
+      </div>
+    {% endif %}
+
+  </main>
+
+  {% if page.footer %}
+    <footer class="page__footer">
+      <div class="container">
+        <div class="d-flex justify-content-md-between align-items-md-center">
+          {{ page.footer }}
+        </div>
+      </div>
+    </footer>
+  {% endif %}
 </div>

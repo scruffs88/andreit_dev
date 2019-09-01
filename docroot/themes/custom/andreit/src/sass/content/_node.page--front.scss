@@ -1,6 +1,23 @@
 // Front Page
 // -----------------------------------------------------------------------------
-.page-node-1{
+.page-node-1 {
+  header {
+    z-index: -1;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #082031;
+    background: -moz-linear-gradient(top, #082031 0%, #0e2c40 100%);
+    background: -webkit-linear-gradient(top, #082031 0%, #0e2c40 100%);
+    background: linear-gradient(to bottom, #082031 0%, #0e2c40 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#082031', endColorstr='#0e2c40', GradientType=0);
+    -webkit-box-shadow: inset 2px 82px 178px 21px rgba(0, 0, 0, 0.48);
+    -moz-box-shadow: inset 2px 82px 178px 21px rgba(0, 0, 0, 0.48);
+    box-shadow: inset 2px 82px 178px 21px rgba(0, 0, 0, 0.48);
+
+  }
+
   &.slider__body {
     margin: 0;
     padding: 0;
@@ -53,5 +70,557 @@
   .slider__indicator--active {
     opacity: 0.3;
   }
+
+  .page__header-top {
+    .earth-icon {
+      width: 111px;
+      height: 110px;
+      background: url(../../src/img/earth.png) no-repeat top center;
+      position: absolute;
+      bottom: 40px;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      -webkit-animation-name: spin;
+      -webkit-animation-duration: 75s;
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+      -moz-animation-name: spin;
+      -moz-animation-duration: 75s;
+      -moz-animation-iteration-count: infinite;
+      -moz-animation-timing-function: linear;
+      -ms-animation-name: spin;
+      -ms-animation-duration: 75s;
+      -ms-animation-iteration-count: infinite;
+      -ms-animation-timing-function: linear;
+      animation-name: spin;
+      animation-duration: 75s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+
+    .earth-clouds {
+      width: 49px;
+      height: 40px;
+      background: url(../../src/img/cloud_01.png) no-repeat top center;
+      position: absolute;
+      bottom: 96px;
+      margin: 0 auto;
+      left: -70px;
+      right: 0;
+      z-index: 2;
+    }
+
+    .earth-clouds-two {
+      width: 39px;
+      height: 32px;
+      background: url(../../src/img/cloud_02.png) no-repeat top center;
+      position: absolute;
+      bottom: 56px;
+      margin: 0 auto;
+      left: 65px;
+      right: 0;
+      z-index: 0;
+    }
+
+    @-ms-keyframes spin {
+      from {
+        -ms-transform: rotate(0deg);
+      }
+
+      to {
+        -ms-transform: rotate(360deg);
+      }
+    }
+
+
+    @-moz-keyframes spin {
+      from {
+        -moz-transform: rotate(0deg);
+      }
+
+      to {
+        -moz-transform: rotate(360deg);
+      }
+    }
+
+
+    @-webkit-keyframes spin {
+      from {
+        -webkit-transform: rotate(0deg);
+      }
+
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+
+    .stars {
+      animation: starry_star 8s ease-in-out infinite;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: #FFFFFF 26px 7px 0 -1px, rgba(255, 255, 255, 0.1) -36px -19px 0 -1px, rgba(255, 255, 255, 0.1) -51px -34px 0 -1px, #FFFFFF -52px -62px 0 -1px, #FFFFFF 14px -37px, rgba(255, 255, 255, 0.1) 41px -19px, #FFFFFF 34px -50px, rgba(255, 255, 255, 0.1) 14px -71px 0 -1px, #FFFFFF 64px -21px 0 -1px, rgba(255, 255, 255, 0.1) 32px -85px 0 -1px, #FFFFFF 64px -90px, rgba(255, 255, 255, 0.1) 60px -67px 0 -1px, #FFFFFF 34px -127px, rgba(255, 255, 255, 0.1) -26px -103px 0 -1px, rgba(255, 255, 255, 0.1) -26px -300px 0 -1px;
+      height: 4px;
+      width: 4px;
+      margin-left: -10px;
+      opacity: 1;
+      position: absolute;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      top: 63%;
+      z-index: 1;
+    }
+
+    @keyframes starry_star {
+      50% {
+        box-shadow: rgba(255, 255, 255, 0.1) 26px 7px 0 -1px, #FFFFFF -36px -19px 0 -1px, #FFFFFF -51px -34px 0 -1px, rgba(255, 255, 255, 0.1) -52px -62px 0 -1px, rgba(255, 255, 255, 0.1) 14px -37px, #FFFFFF 41px -19px, rgba(255, 255, 255, 0.1) 34px -50px, #FFFFFF 14px -71px 0 -1px, rgba(255, 255, 255, 0.1) 64px -21px 0 -1px, #FFFFFF 32px -85px 0 -1px, rgba(255, 255, 255, 0.1) 64px -90px, #FFFFFF 60px -67px 0 -1px, rgba(255, 255, 255, 0.1) 34px -127px, #FFFFFF -26px -103px 0 -1px, rgba(255, 255, 255, 0.1) -26px 300px 0 -1px;
+      }
+    }
+
+
+    .starsbg {
+      width: 100%;
+      max-width: 795px;
+      height: 489px;
+      background: url(../../src/img/stars.png) no-repeat top center;
+      position: absolute;
+      bottom: 40px;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      bottom: 0;
+    }
+
+    .white-background-header {
+      width: 100%;
+      height: 140px;
+      position: absolute;
+      bottom: 0;
+      margin: 0 auto;
+      left: 0;
+      right: 0;
+      z-index: 0;
+      background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.12) 100%);
+      background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.12) 100%);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.12) 100%);
+    }
+
+    .space-ship {
+      position: absolute;
+      bottom: 232px;
+      margin: 0 auto;
+      left: -360px;
+      right: 0;
+      z-index: 1;
+      -webkit-animation: space-ship 100s infinite;
+      animation: space-ship 100s infinite;
+      width: 300px;
+      height: 600px;
+
+      #rocket {
+        background: none repeat scroll 0 0 #fff;
+        border-radius: 99% 40% 0 20%;
+        box-shadow: -12px 10px 19px -5px rgba(0, 0, 0, 0.3) inset;
+        height: 280px;
+        left: -7%;
+        top: 40%;
+        width: 100px;
+        z-index: 1;
+      }
+
+      #rocket:after {
+        background: none repeat scroll 0 0 #fff;
+        border-radius: 40% 99% 20% 0;
+        box-shadow: -19px 10px 18px -5px rgba(0, 0, 0, 0.3) inset;
+        content: "";
+        height: 280px;
+        left: 40px;
+        position: absolute;
+        width: 100px;
+        z-index: 100;
+      }
+
+      .rocket__body__part {
+        background: none repeat scroll 0 0 #fff;
+        border-bottom: 1px solid $brand-primary;
+        border-top: 1px solid $brand-primary;
+        box-shadow: -19px 0px 18px -8px rgba(0, 0, 0, 0.3) inset;
+        height: 40px;
+        position: relative;
+        margin: 0 auto;
+        top: 25%;
+        left: -1px;
+        width: 140px;
+        z-index: 1000;
+      }
+
+      .rocket__body__part p {
+        text-align: center;
+        font-size: 30px;
+        margin: 0 auto;
+        line-height: 1.2em;
+        color: $brand-primary;
+      }
+
+      .container {
+        margin: 0 auto;
+        width: 60px;
+        height: 60px;
+        top: 13%;
+        transform-origin: center top;
+        animation-name: flicker;
+        animation-duration: 3ms;
+        animation-delay: 200ms;
+        animation-timing-function: ease-in;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+      }
+
+      .flame {
+        bottom: 0;
+        position: absolute;
+        border-bottom-right-radius: 50%;
+        border-bottom-left-radius: 50%;
+        border-top-left-radius: 50%;
+        transform: rotate(135deg) scale(1.5, 1.5);
+        -moz-transform: rotate(135deg) scale(1.5, 1.5);
+        -webkit-transform: rotate(135deg) scale(1.5, 1.5);
+        -o-transform: rotate(135deg) scale(1.5, 1.5);
+      }
+
+      .yellow {
+        left: 15px;
+        width: 30px;
+        height: 30px;
+        background: gold;
+        box-shadow: 0px 0px 9px 4px gold;
+      }
+
+      .orange {
+        left: 10px;
+        width: 40px;
+        height: 40px;
+        background: orange;
+        box-shadow: 0px 0px 9px 4px orange;
+      }
+
+      .red {
+        left: 5px;
+        top: 20px;
+        width: 50px;
+        height: 50px;
+        background: OrangeRed;
+        border: 1px solid OrangeRed;
+        box-shadow: 0px 0px 5px 4px OrangeRed;
+      }
+
+      .white {
+        left: 15px;
+        top: 20px;
+        width: 30px;
+        height: 30px;
+        background: white;
+        box-shadow: 0px 0px 9px 4px white;
+      }
+
+      .circle {
+        border-radius: 50%;
+        position: absolute;
+      }
+
+      .blue {
+        width: 10px;
+        height: 10px;
+        left: 25px;
+        top: 5px;
+        background: SlateBlue;
+        box-shadow: 0px 0px 15px 10px #4fc1e9;
+      }
+
+      .black {
+        width: 40px;
+        height: 40px;
+        left: 10px;
+        top: -30px;
+        background: #ddd;
+        border: 1px solid #282A3A;
+        box-shadow: 0px 0px 10px 10px #282A3A;
+      }
+
+      @keyframes flicker {
+        0% {
+          transform: rotate(-1deg);
+          -moz-transform: rotate(-1deg);
+          -webkit-transform: rotate(-1deg);
+        }
+        20% {
+          transform: rotate(1deg);
+          -moz-transform: rotate(1deg);
+          -webkit-transform: rotate(1deg);
+        }
+        40% {
+          transform: rotate(-1deg);
+          -moz-transform: rotate(-1deg);
+          -webkit-transform: rotate(-1deg);
+        }
+        60% {
+          transform: rotate(1deg) scaleY(1.04);
+        }
+        80% {
+          transform: rotate(-2deg) scaleY(0.92);
+          -moz-transform: rotate(-2deg) scaleY(0.92);
+          -webkit-transform: rotate(-2deg) scaleY(0.92);
+        }
+        100% {
+          transform: rotate(1deg);
+          -webkit-transform: rotate(1deg);
+          -moz-transform: rotate(1deg);
+        }
+      }
+
+      .circlee {
+        width: 60px;
+        height: 60px;
+        border: 4px solid grey;
+        top: 3%;
+
+        img {
+          border-radius: 50%;
+        }
+      }
+
+      .circleee {
+        width: 40px;
+        height: 40px;
+        border: 4px solid grey;
+        top: -19%;
+      }
+
+      .circlee, .circleee {
+        border-radius: 50%;
+        position: relative;
+        z-index: 10;
+      }
+
+      #advanced, #advancedd {
+        background-image: -moz-radial-gradient(45px 45px 45deg, circle cover, #e6e9ed 0%, #aab2bd 100%, #aab2bd 95%);
+        background-image: -webkit-radial-gradient(45px 45px, circle cover, #e6e9ed, #aab2bd);
+        background-image: radial-gradient(45px 45px 45deg, circle cover, #e6e9ed 0%, #aab2bd 100%, #aab2bd 95%);
+      }
+
+      #advanced {
+        width: 60px;
+        height: 60px;
+      }
+
+      #advanced, #advancedd, .container, #rocket, .wings {
+        position: relative;
+        margin: 0 auto;
+      }
+
+      .wings {
+        width: 200px;
+        top: -15%;
+        left: -1px;
+      }
+
+      #left, #right {
+        width: 70px;
+        height: 100px;
+      }
+
+      #left {
+        float: left;
+        -webkit-transform: skew(-30deg);
+        -moz-transform: skew(-30deg);
+        -o-transform: skew(-30deg);
+        background: #ddd;
+      }
+
+      #right {
+        float: right;
+        -webkit-transform: skew(30deg);
+        -moz-transform: skew(30deg);
+        -o-transform: skew(30deg);
+        background: #ddd;
+      }
+    }
+
+    @-webkit-keyframes space-ship {
+      0% {
+        bottom: 232px;
+        left: -360px;
+        transform: rotate(-10deg);
+      }
+
+      10% {
+        transform: rotate(-10deg);
+      }
+
+      10% {
+        bottom: 150px;
+        left: -800px;
+        transform: rotate(120deg);
+      }
+
+      20% {
+        bottom: 450px;
+        left: -400px;
+        transform: rotate(190deg);
+      }
+
+      30% {
+        bottom: 410px;
+        left: 800px;
+        transform: rotate(180deg);
+      }
+
+      40% {
+        bottom: 410px;
+        left: 800px;
+        transform: rotate(100deg);
+      }
+
+      45% {
+        bottom: 350px;
+        left: 800px;
+        transform: rotate(100deg);
+      }
+
+      50% {
+        bottom: 390px;
+        left: 800px;
+        transform: rotate(10deg);
+      }
+
+      60% {
+        bottom: 390px;
+        left: 500px;
+        transform: rotate(0deg);
+      }
+
+      70% {
+        bottom: 370px;
+        left: 300px;
+        transform: rotate(100deg);
+      }
+
+      80% {
+        bottom: 50px;
+        left: 300px;
+        transform: rotate(160deg);
+      }
+
+      90% {
+        bottom: 160px;
+        left: 600px;
+        transform: rotate(30deg);
+      }
+    }
+
+
+    @keyframes space-ship {
+      0% {
+        bottom: 232px;
+        left: -360px;
+        transform: rotate(-10deg);
+      }
+
+      10% {
+        transform: rotate(-10deg);
+      }
+
+      10% {
+        bottom: 150px;
+        left: -800px;
+        transform: rotate(120deg);
+      }
+
+      20% {
+        bottom: 450px;
+        left: -400px;
+        transform: rotate(190deg);
+      }
+
+      30% {
+        bottom: 410px;
+        left: 800px;
+        transform: rotate(180deg);
+      }
+
+      40% {
+        bottom: 410px;
+        left: 800px;
+        transform: rotate(100deg);
+      }
+
+      45% {
+        bottom: 350px;
+        left: 800px;
+        transform: rotate(100deg);
+      }
+
+      50% {
+        bottom: 390px;
+        left: 800px;
+        transform: rotate(10deg);
+      }
+
+      60% {
+        bottom: 390px;
+        left: 500px;
+        transform: rotate(0deg);
+      }
+
+      70% {
+        bottom: 370px;
+        left: 300px;
+        transform: rotate(100deg);
+      }
+
+      80% {
+        bottom: 50px;
+        left: 300px;
+        transform: rotate(160deg);
+      }
+
+      90% {
+        bottom: 160px;
+        left: 600px;
+        transform: rotate(30deg);
+      }
+    }
+
+
+    .satellite {
+      width: 24px;
+      height: 30px;
+      background: url(../../src/img/satellite.png) no-repeat top center;
+      position: absolute;
+      bottom: 180px;
+      margin: 0 auto;
+      left: 500px;
+      right: 0;
+      z-index: 1;
+      -webkit-animation: satellite 100s infinite;
+      animation: satellite 100s infinite;
+    }
+  }
+
 }
 
