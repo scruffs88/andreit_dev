@@ -1,0 +1,19 @@
+uuid: 009d7a56-9365-4210-901c-0907d5c69a18
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: DmCHAWTvP1oOCCrVj2KfsgNbB6je_4U6fzpKaNJg8x4
+name: d02_square
+label: 'Display 02 (200xSquare 1:1)'
+effects:
+  c6e9e082-4830-4c15-a79f-af656a5afd4a:
+    uuid: c6e9e082-4830-4c15-a79f-af656a5afd4a
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 200
+      height: 200
+      crop_type: focal_point

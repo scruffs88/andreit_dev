@@ -1,0 +1,13 @@
+ignored_config_entities:
+  - 'webform.*'
+  - simple_sitemap.settings
+  - 'system.action.webform_*'
+  - simple_sitemap.custom_links.default
+  - ~webform.webform.event_subscription
+  - ~webform.webform.apply_for_this_job
+  - recaptcha.settings
+  - ~webform.webform.office_contact
+  - google_tag.settings
+  - geofield_map.settings
+  - geocoder.settings
+  - recaptcha.settings

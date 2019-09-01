@@ -1,0 +1,17 @@
+uuid: b6d6c10f-c58c-4c08-a297-0db6df09376c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: PF44oobSVlUxdfmiL4hjV-lihINphR-I1ySdsUfviQw
+name: de2e_square
+label: 'Display Edge-to-Edge square 1:1'
+effects:
+  e7369ff0-b00b-4b4b-8b77-1dc44ddb8040:
+    uuid: e7369ff0-b00b-4b4b-8b77-1dc44ddb8040
+    id: image_scale
+    weight: 1
+    data:
+      width: 1600
+      height: 1600
+      upscale: false

@@ -1,0 +1,19 @@
+uuid: 98e2ffaf-cb56-440c-b3e4-23f8e2c9ccfe
+langcode: en
+status: true
+dependencies: {  }
+id: whitelist
+label: Whitelist
+description: ''
+folder: ../config/splits/whitelist
+module:
+  field_ui: 0
+theme: {  }
+blacklist:
+  - webform.webform.event_subscription
+  - webform.webform.apply_for_this_job
+  - webform.webform.office_contact
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: -99

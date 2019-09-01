@@ -1,0 +1,27 @@
+uuid: 51b5b353-52e9-475b-ae62-253eee310eb7
+langcode: en
+status: true
+dependencies: {  }
+id: local
+label: Local
+description: ''
+folder: ../config/splits/local
+module:
+  dblog: 0
+  devel: 0
+  field_ui: 0
+  reroute_email: 0
+  twig_xdebug: 0
+  views_ui: 0
+theme: {  }
+blacklist:
+  - environment_indicator.indicator
+  - environment_indicator.settings
+  - system.logging
+  - system.performance
+  - advagg.settings
+  - advagg_js_minify.settings
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

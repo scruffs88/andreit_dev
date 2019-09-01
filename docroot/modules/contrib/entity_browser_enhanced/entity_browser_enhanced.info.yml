@@ -1,0 +1,14 @@
+name: 'Enhanced Entity Browser'
+description: 'Provides some behavior and style enhancements to Entity Browsers, specifically for multiselect and image/media browsers.'
+type: module
+package: Media
+# project: entity_browser_enhanced
+# core: 8.x
+dependencies:
+  - entity_browser:entity_browser
+
+# Information added by Drupal.org packaging script on 2019-08-05
+version: '8.x-1.0-rc5'
+core: '8.x'
+project: 'entity_browser_enhanced'
+datestamp: 1565048039

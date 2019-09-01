@@ -1,0 +1,17 @@
+uuid: 249ec6fc-f744-431d-a417-b16ac7a9e283
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: MFNh9BquTcjaV5KvNUKevi18mRGifOOczACPDjnBT0M
+name: d02
+label: 'Display 02 (200xAuto)'
+effects:
+  18a36955-4245-415d-b073-6ae036f8c739:
+    uuid: 18a36955-4245-415d-b073-6ae036f8c739
+    id: image_scale
+    weight: 1
+    data:
+      width: 200
+      height: null
+      upscale: false

@@ -1,0 +1,20 @@
+uuid: 1899230a-3d45-4057-85fb-56dd0c27b5fa
+langcode: en
+status: true
+dependencies: {  }
+id: dev
+label: Dev
+description: ''
+folder: ../config/splits/dev
+module: {  }
+theme: {  }
+blacklist:
+  - environment_indicator.settings
+  - system.logging
+  - environment_indicator.indicator
+  - advagg.settings
+  - advagg_js_minify.settings
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

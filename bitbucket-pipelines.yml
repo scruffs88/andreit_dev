@@ -1,0 +1,148 @@
+image: wodby/drupal-php:7.2-dev
+clone:
+  depth: full
+options:
+  max-time: 5 # configure default 5 minute timeout
+  docker: true
+  size: 2x
+
+pipelines:
+  pull-requests:
+    '**':
+      - step:
+          caches:
+            - composer
+          name: Deploy to test
+          deployment: test   # can be test, staging or production.
+          script:
+            - php -v
+            - php -i | grep php.ini
+            - sudo chmod u+x assets/ci/dependencies.sh
+            - sudo ./assets/ci/dependencies.sh
+            #- ls
+            - pwd
+            #- composer --verbose validate
+            - composer install --no-interaction --verbose
+            - composer drupal-scaffold
+            #- ls
+            - cd docroot
+            - ls
+            - drush status
+            - docker network ls
+            - sleep 10
+            - drush si -y --account-name=webmaster --account-pass=LetMe.in1234 --account-mail=myemail@example.com --db-url="${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@127.0.0.1:3306/${DB_NAME}" -v -d
+            - drush config-set system.performance css.preprocess 0 --yes
+            - drush config-set system.performance js.preprocess 0 --yes
+            - drush config-set system.logging error_level all --yes
+            #- drush theme:enable bootstrap
+            #- drush en simpletest paragraphs_library -y
+            #- drush config-set system.theme default bootstrap
+            - drush runserver --default-server=builtin 8080 &>/dev/null &
+            - sleep 5
+            #- ./../bin/phpunit -c ./core/phpunit.xml.dist --printer="\Drupal\Tests\Listeners\HtmlOutputPrinter" --testsuite functional
+            - cd $BITBUCKET_CLONE_DIR
+            - ./bin/behat --colors --format=pretty --out=std
+            - cd docroot
+            #- export SIMPLETEST_DB=${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@127.0.0.1:3306/${DB_NAME}
+            #- SIMPLETEST_BASE_URL=http://localhost
+            #- ./../bin/phpunit -c core --testsuite unit --exclude-group Composer,DependencyInjection,PageCache,Setup
+          services:
+            - mariadb
+            - selenium
+  branches:
+    develop:
+      - step:
+          caches:
+            - composer
+          name: Deploy to test
+          deployment: test   # can be test, staging or production.
+          script:
+            - php -v
+            - php -i | grep php.ini
+            - sudo chmod u+x assets/ci/dependencies.sh
+            - sudo ./assets/ci/dependencies.sh
+            #- ls
+            - pwd
+            #- composer --verbose validate
+            - composer install --no-interaction --verbose
+            - composer drupal-scaffold
+            #- ls
+            - cd docroot
+            - ls
+            - drush status
+            - docker network ls
+            - sleep 10
+            - drush si -y --account-name=webmaster --account-pass=LetMe.in1234 --account-mail=myemail@example.com --db-url="${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@127.0.0.1:3306/${DB_NAME}" -v -d
+            - drush config-set system.performance css.preprocess 0 --yes
+            - drush config-set system.performance js.preprocess 0 --yes
+            - drush config-set system.logging error_level all --yes
+            #- drush theme:enable bootstrap
+            #- drush en simpletest paragraphs_library -y
+            #- drush config-set system.theme default bootstrap
+            - drush runserver --default-server=builtin 8080 &>/dev/null &
+            - sleep 5
+            #- ./../bin/phpunit -c ./core/phpunit.xml.dist --printer="\Drupal\Tests\Listeners\HtmlOutputPrinter" --testsuite functional
+            - cd $BITBUCKET_CLONE_DIR
+            - ./bin/behat --colors --format=pretty --out=std
+            - cd docroot
+            #- export SIMPLETEST_DB=${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@127.0.0.1:3306/${DB_NAME}
+            #- SIMPLETEST_BASE_URL=http://localhost
+            #- ./../bin/phpunit -c core --testsuite unit --exclude-group Composer,DependencyInjection,PageCache,Setup
+          services:
+            - mariadb
+            - selenium
+    master:
+      - step:
+          caches:
+            - composer
+          name: Deploy to test
+          deployment: test   # can be test, staging or production.
+          script:
+            - php -v
+            - php -i | grep php.ini
+            - sudo chmod u+x assets/ci/dependencies.sh
+            - sudo ./assets/ci/dependencies.sh
+            #- ls
+            - pwd
+            #- composer --verbose validate
+            - composer install --no-interaction --verbose
+            - composer drupal-scaffold
+            #- ls
+            - cd docroot
+            - ls
+            - drush status
+            - docker network ls
+            - sleep 10
+            - drush si -y --account-name=webmaster --account-pass=LetMe.in1234 --account-mail=myemail@example.com --db-url="mysql://${DB_USER}:${DB_PASSWORD}@127.0.0.1:3306/${DB_NAME}" -v -d
+            - drush config-set system.performance css.preprocess 0 --yes
+            - drush config-set system.performance js.preprocess 0 --yes
+            - drush config-set system.logging error_level all --yes
+            #- drush theme:enable bootstrap
+            #- drush en simpletest paragraphs_library -y
+            #- drush config-set system.theme default bootstrap
+            - drush runserver --default-server=builtin 8080 &>/dev/null &
+            - sleep 5
+            #- ./../bin/phpunit -c ./core/phpunit.xml.dist --printer="\Drupal\Tests\Listeners\HtmlOutputPrinter" --testsuite functional
+            - cd $BITBUCKET_CLONE_DIR
+            - ./bin/behat --colors --format=pretty --out=std
+            - cd docroot
+            #- export SIMPLETEST_DB=${DB_DRIVER}://${DB_USER}:${DB_PASSWORD}@127.0.0.1:3306/${DB_NAME}
+            #- SIMPLETEST_BASE_URL=http://localhost
+            #- ./../bin/phpunit -c core --testsuite unit --exclude-group Composer,DependencyInjection,PageCache,Setup
+          services:
+            - mariadb
+            - selenium
+
+definitions:
+  services:
+    mariadb:
+      image: mariadb:10.1
+      memory: 512
+      environment:
+        MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+        MYSQL_DATABASE: $DB_NAME
+        MYSQL_USER: $DB_USER
+        MYSQL_PASSWORD: $DB_PASSWORD
+    selenium:
+      image: darksolar/selenium-chrome-headless
+      memory: 512

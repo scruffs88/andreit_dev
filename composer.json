@@ -1,0 +1,197 @@
+{
+  "name": "lexsoft/drupalcoders",
+  "description": "Drupal Starter Template",
+  "type": "drupal-profile",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "authors": [
+    {
+      "name": "lexsoft",
+      "homepage": "https://drupalcoders.org",
+      "role": "Maintainer"
+    }
+  ],
+  "repositories": {
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    },
+    "assets": {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  },
+  "require": {
+    "composer/installers": "^1.5.0",
+    "oomphinc/composer-installers-extender": "^1.1.2",
+    "cweagans/composer-patches": "^1.6.4",
+    "zaporylie/composer-drupal-optimizations": "^1.0",
+    "drupal-composer/drupal-security-advisories": "8.x-dev",
+    "drupal-composer/drupal-scaffold": "^2.4.0",
+    "drupal/drupal-library-installer-plugin": "^0.3",
+    "drupal/core": "~8.7.0",
+    "drupal/config_update": "~1.0",
+    "drupal/config_filter": "~1.0",
+    "drupal/config_split": "~1.0",
+    "drupal/config_ignore": "~2.0",
+    "drupal/config_perms": "~2.0",
+    "drupal/devel": "~2.0",
+    "drupal/chosen" : "~2.0",
+    "npm-asset/chosen-js": "1.8.7",
+    "drupal/environment_indicator": "~3.0",
+    "drupal/ctools": "~3.0",
+    "drupal/token": "~1.0",
+    "drupal/radix_layouts": "~4.0",
+    "drupal/views_bootstrap": "~4.0",
+    "drupal/field_group": "~3.0",
+    "drupal/smart_trim": "~1.0",
+    "drupal/block_class": "~1.0",
+    "drupal/menu_block": "~1.0",
+    "drupal/entity": "~1.0",
+    "drupal/userprotect": "~1.0",
+    "drupal/admin_toolbar": "~1.0",
+    "drupal/adminimal_admin_toolbar": "~1.0",
+    "drupal/webform": "~5.0",
+    "drupal/rabbit_hole": "~1.0",
+    "drupal/libraries_ui": "~1.0",
+    "drupal/username_enumeration_prevention": "~1.0",
+    "drupal/password_policy": "~3.0",
+    "drupal/seckit": "~1.0",
+    "drupal/honeypot": "~1.0",
+    "drupal/shield": "~1.0",
+    "drupal/captcha": "~1.0",
+    "drupal/recaptcha": "~2.0",
+    "drupal/autocomplete_deluxe": "~1.0",
+    "drupal/extlink": "~1.0",
+    "drupal/ckeditor_media_embed": "~1.0",
+    "drupal/link_attributes": "~1.0",
+    "drupal/viewsreference": "~2.0",
+    "drupal/libraries": "~3.0",
+    "drupal/varbase_media": "~7.0",
+    "drupal/varbase_seo": "~6.0",
+    "drupal/varbase_email": "~6.0",
+    "drupal/varbase_editor": "~7.0",
+    "drupal/radix": "~4.0",
+    "drupal/claro": "~1.0",
+    "drupal/length_indicator": "^1.0@RC",
+    "drupal/advanced_text_formatter": "^1.0",
+    "drupal/maxlength": "^1.0@beta"
+  },
+  "require-dev": {
+    "drupal/robotstxt": "~1.2",
+    "drupal/redis": "~1.1",
+    "drupal/entity_usage": "^2.0-alpha8",
+    "drupal/stage_file_proxy": "~1.0",
+    "drupal/field_report": "1.x-dev",
+    "drupal/twig_xdebug": "~1.0",
+    "drupal/styleguide": "1.0-alpha3",
+    "drush/drush": "~9.0",
+    "drupal/console": "~1.0",
+    "drupal/coder": "~8",
+    "drupal/drupal-extension": "~3",
+    "phing/phing": "~2.0",
+    "behat/behat": "~3.0",
+    "behat/mink": "~1.0",
+    "behat/mink-extension": "~2.0",
+    "behat/mink-goutte-driver": "~1.0",
+    "behat/mink-selenium2-driver": "~1.0",
+    "behatch/contexts": "~3.0",
+    "emuse/behat-html-formatter": "^0.1.0"
+  },
+  "config": {
+    "bin-dir": "bin/",
+    "secure-http": false,
+    "optimize-autoloader": true,
+    "preferred-install": {
+      "drupal/core": "dist"
+    }
+  },
+  "scripts": {
+    "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+    "pre-autoload-dump": "Drupal\\Core\\Composer\\Composer::preAutoloadDump",
+    "post-autoload-dump": "Drupal\\Core\\Composer\\Composer::ensureHtaccess",
+    "post-package-install": "Drupal\\Core\\Composer\\Composer::vendorTestCodeCleanup",
+    "post-package-update": "Drupal\\Core\\Composer\\Composer::vendorTestCodeCleanup",
+    "post-install-cmd": [
+      "cd vendor && find . -name \".git\" -type d -prune -exec rm -r \"{}\" \\; && cd .."
+    ],
+    "post-update-cmd": [
+      "@drupal-scaffold",
+      "cd vendor && find . -name \".git\" -type d -prune -exec rm -r \"{}\" \\; && cd .."
+    ]
+  },
+  "extra": {
+    "installer-types": [
+      "bower-asset",
+      "npm-asset"
+    ],
+    "installer-paths": {
+      "docroot/core": ["drupal/core"],
+      "docroot/profiles/{$name}": ["type:drupal-profile"],
+      "docroot/modules/contrib/{$name}": ["type:drupal-module"],
+      "docroot/themes/contrib/{$name}": ["type:drupal-theme"],
+      "docroot/libraries/slick": ["npm-asset/slick-carousel"],
+      "docroot/libraries/ace": ["npm-asset/ace-builds"],
+      "docroot/libraries/chosen": ["npm-asset/chosen-js"],
+      "docroot/libraries/{$name}": [
+        "type:drupal-library",
+        "type:bower-asset",
+        "type:npm-asset"
+      ],
+      "docroot/modules/custom/{$name}": ["type:drupal-custom-module"],
+      "docroot/themes/custom/{$name}": ["type:drupal-custom-theme"],
+      "drush/contrib/{$name}": ["type:drupal-drush"]
+    },
+    "drupal-libraries": {
+      "library-directory": "docroot/libraries",
+      "libraries": [
+        {
+          "name": "dropzone",
+          "package": "npm-asset/dropzone"
+        },
+        {
+          "name": "blazy",
+          "package": "npm-asset/blazy"
+        },
+        {
+          "name": "slick",
+          "package": "npm-asset/slick-carousel"
+        },
+        {
+          "name": "ace",
+          "package": "npm-asset/ace-builds"
+        }
+      ]
+    },
+    "enable-patching": true,
+    "composer-exit-on-patch-failure": true,
+    "patchLevel": {
+      "drupal/core": "-p2"
+    },
+    "patches": {
+      "drupal/core": {
+        "Issue #2869592: Disabled update module shouldn't produce a status report warning":
+        "https://www.drupal.org/files/issues/2869592-remove-update-warning-7.patch",
+        "Issue #2885441: EntityReferenceAutocompleteWidget should define its size setting as an integer":
+        "https://www.drupal.org/files/issues/2885441-2.patch",
+        "Issue #2815221: Add quickedit to the latest-revision route":
+        "https://www.drupal.org/files/issues/2019-03-05/2815221-116.patch",
+        "Issue #1356276: Allow profiles to define a base/parent profile and load them in the correct order":
+        "https://www.drupal.org/files/issues/2018-10-12/1356276-531.patch",
+        "Issue #2914389: Allow profiles to exclude dependencies of their parent":
+        "https://www.drupal.org/files/issues/2018-07-09/2914389-8-do-not-test.patch",
+        "Issue #2893892: Fixed Warning Invalid argument supplied for foreach() in Drupal":
+        "https://www.drupal.org/files/issues/2018-12-10/core--getDerivatives-Invalid-argument-foreach--2893892-11-d8.patch"
+      },
+      "drupal/ctools": {
+        "Issue #2820783: Fix Block.php notices and warnings.":
+        "https://www.drupal.org/files/issues/2019-02-18/ctools-Block.php_notices_and_warnings-2820783-51-D8.patch"
+      },
+      "drupal/radix": {
+        "Issue #2933383: Convert radix drush command to drush 9":
+        "https://www.drupal.org/files/issues/2019-06-08/radix-2933383-16-drush9-command.patch"
+      }
+    }
+  }
+}

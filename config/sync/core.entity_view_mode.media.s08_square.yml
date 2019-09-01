@@ -1,0 +1,12 @@
+uuid: b44f5f79-2791-4a98-b6bd-a32a5596ef29
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: s2SPTyWZPSeoou6M3jSHdDtWUi0euE1uYtvGwvpw7x0
+id: media.s08_square
+label: 'Size 08 square 1:1'
+targetEntityType: media
+cache: true

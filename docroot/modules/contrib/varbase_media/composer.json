@@ -1,0 +1,101 @@
+{
+  "name": "drupal/varbase_media",
+  "description": "Manages type of media contents and entity browsers in the site.",
+  "type": "drupal-module",
+  "homepage": "https://www.drupal.org/project/varbase_media",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "Vardot",
+      "homepage": "https://www.drupal.org/vardot",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/varbase_media",
+    "source": "http://cgit.drupalcode.org/varbase_media"
+  },
+  "repositories": {
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+      },
+    "assets": {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  },
+  "require": {
+    "composer/installers": "~1.0",
+    "oomphinc/composer-installers-extender": "~1.0",
+    "cweagans/composer-patches": "~1.0",
+    "drupal/drupal-library-installer-plugin": "^0.3",
+    "npm-asset/dropzone": "~4.0",
+    "npm-asset/blazy": "~1.0",
+    "npm-asset/slick-carousel": "~1.0",
+    "drupal/ds": "~3.0",
+    "drupal/better_exposed_filters": "~3.0",
+    "drupal/views_bulk_operations": "~3.0",
+    "drupal/views_bulk_edit": "~2.0",
+    "drupal/views_infinite_scroll": "~1.0",
+    "drupal/entity_browser": "2.2",
+    "drupal/entity_browser_enhanced": "~1.0",
+    "drupal/dropzonejs": "~2.0",
+    "drupal/entity_embed": "1.0",
+    "drupal/inline_entity_form": "~1.0",
+    "drupal/embed": "~1.0",
+    "drupal/media_entity_instagram": "~2.0",
+    "drupal/media_entity_twitter": "~2.0",
+    "drupal/crop": "~2.0",
+    "drupal/focal_point": "1.0",
+    "drupal/imagemagick": "~2.0",
+    "drupal/imageapi_optimize": "~2.0",
+    "drupal/blazy": "~2.0",
+    "drupal/slick": "~2.0",
+    "drupal/slick_views": "~2.0",
+    "drupal/slick_media": "~2.0"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-8.x-7.x": "8.7.x-dev"
+    },
+    "installer-types": [
+      "bower-asset",
+      "npm-asset"
+    ],
+    "installer-paths": {
+      "libraries/slick": ["npm-asset/slick-carousel"],
+      "libraries/{$name}": [
+        "type:drupal-library",
+        "type:bower-asset",
+        "type:npm-asset"
+      ]
+    },
+    "drupal-libraries": {
+      "libraries": [
+          {"name": "dropzone","package": "npm-asset/dropzone"},
+          {"name": "blazy", "package": "npm-asset/blazy"},
+          {"name": "slick", "package": "npm-asset/slick-carousel"}
+      ]
+    },
+    "enable-patching": true,
+    "composer-exit-on-patch-failure": true,
+    "patches": {
+      "drupal/focal_point": {
+        "Issue #3001262: Integrate focal point with media_library, which is now in core":
+        "https://www.drupal.org/files/issues/2019-05-02/focal_point-integrate_with_media_library-3001262-4-b.patch"
+      },
+      "drupal/entity_browser": {
+        "Issue #2877751: Inform users how many items they can add to a field that uses an entity browser.":
+        "https://www.drupal.org/files/issues/2019-07-04/2877751-40.patch"
+      },
+      "drupal/entity_embed": {
+        "Issue #3070343: Allow to add a Drupal core link with Link Widget for Image entities using Entity Embed Dialog in CKEditor":
+        "https://www.drupal.org/files/issues/2019-07-25/3070343-8.patch",
+        "Issue #2679875: Inline Entity Form integration":
+        "https://www.drupal.org/files/issues/2019-08-27/2679875-12.patch"
+      }
+    }
+  }
+}

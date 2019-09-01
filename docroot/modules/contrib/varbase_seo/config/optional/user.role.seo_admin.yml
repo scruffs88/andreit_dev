@@ -1,0 +1,39 @@
+langcode: en
+status: true
+dependencies: {  }
+id: seo_admin
+label: 'SEO Admin'
+weight: -6
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access editor_media_browser entity browser pages'
+  - 'access image_browser entity browser pages'
+  - 'access in-place editing'
+  - 'access media_browser entity browser pages'
+  - 'access responsive preview'
+  - 'access toolbar'
+  - 'access tour'
+  - 'access video_browser entity browser pages'
+  - 'administer google analytics'
+  - 'administer meta tags'
+  - 'administer redirect settings'
+  - 'administer redirects'
+  - 'administer sitemap settings'
+  - 'administer url aliases'
+  - 'create page content'
+  - 'create url aliases'
+  - 'create varbase_blog content'
+  - 'edit any landing_page content'
+  - 'edit any page content'
+  - 'edit any varbase_blog content'
+  - 'edit any varbase_heroslider_media content'
+  - 'edit own landing_page content'
+  - 'edit own page content'
+  - 'edit own varbase_blog content'
+  - 'edit own varbase_heroslider_media content'
+  - 'use yoast seo'
+  - 'view any paragraphs previewer'
+  - 'view the administration theme'

@@ -1,0 +1,20 @@
+uuid: 048a8e8a-a7ab-4ad2-88a9-be91cadd02b5
+langcode: en
+status: true
+dependencies:
+  theme:
+    - andreit
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: andreit_local_actions
+theme: andreit
+region: header
+weight: 1
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  provider: core
+  label_display: '0'
+visibility: {  }

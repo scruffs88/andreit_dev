@@ -1,0 +1,19 @@
+style:
+  version: VERSION
+  css:
+    theme:
+      assets/css/andreit.style.css: {}
+  js:
+    assets/js/andreit.script.js: {}
+    assets/js/slider.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
+slider:
+  version: VERSION
+  js:
+    assets/js/slider.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

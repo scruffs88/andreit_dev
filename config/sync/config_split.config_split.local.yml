@@ -1,0 +1,21 @@
+uuid: 51b5b353-52e9-475b-ae62-253eee310eb7
+langcode: en
+status: true
+dependencies: {  }
+id: local
+label: Local
+description: ''
+folder: ../config/splits/local
+module: {  }
+theme: {  }
+blacklist:
+  - environment_indicator.settings
+  - system.logging
+  - system.performance
+  - environment_indicator.indicator
+  - advagg.settings
+  - advagg_js_minify.settings
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

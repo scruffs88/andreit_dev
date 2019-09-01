@@ -1,0 +1,25 @@
+uuid: ef718d0b-6115-4602-b5ca-17e011413fb6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_in_library
+    - media.type.file
+_core:
+  default_config_hash: oRQPL3_zIXE8-IzZiVtdWhOZ_C0sV4_HsP8x5ORd0vY
+id: media.file.field_media_in_library
+field_name: field_media_in_library
+entity_type: media
+bundle: file
+label: 'Show in media library'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

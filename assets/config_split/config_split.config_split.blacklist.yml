@@ -1,0 +1,21 @@
+uuid: f6cca08b-3e5d-409e-8a03-9aa90eff9b24
+langcode: en
+status: true
+dependencies: {  }
+id: blacklist
+label: Blacklist
+description: ''
+folder: null
+module: {  }
+theme: {  }
+blacklist:
+  - 'webform.*'
+  - 'system.action.webform_*'
+  - simple_sitemap.custom_links.default
+  - recaptcha.settings
+  - google_tag.settings
+  - simple_sitemap.settings
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: false
+weight: 0

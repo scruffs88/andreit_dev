@@ -1,0 +1,22 @@
+uuid: 2467fba7-060c-41d0-976f-2575f7921201
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.video
+_core:
+  default_config_hash: _M3xbkRd1EZsfj7qISqW3XNCuCjqTkjZm-8lS9b8X68
+id: media.video.name
+field_name: name
+entity_type: media
+bundle: video
+label: Name
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

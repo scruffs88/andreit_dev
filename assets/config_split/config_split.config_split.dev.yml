@@ -1,0 +1,26 @@
+uuid: 1899230a-3d45-4057-85fb-56dd0c27b5fa
+langcode: en
+status: true
+dependencies: {  }
+id: dev
+label: Dev
+description: ''
+folder: ../config/splits/dev
+module:
+  dblog: 0
+  devel: 0
+  field_ui: 0
+  shield: 0
+  views_ui: 0
+theme: {  }
+blacklist:
+  - environment_indicator.indicator
+  - environment_indicator.settings
+  - system.logging
+  - system.performance
+  - advagg.settings
+  - advagg_js_minify.settings
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

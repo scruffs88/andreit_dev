@@ -1,0 +1,12 @@
+uuid: 5ce4a7b4-a218-48fb-be4b-58a5bb555653
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+_core:
+  default_config_hash: rrhly5UET-y3rqbnjYKBh3K0aLkD0frm_OWDZeG-qM8
+id: media.s08_standard
+label: 'Size 08 standard 16:9'
+targetEntityType: media
+cache: true

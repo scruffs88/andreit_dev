@@ -1,0 +1,22 @@
+uuid: 11a40c5c-991b-47d6-b2aa-1f90399064b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - andreit
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: andreit_help
+theme: andreit
+region: header
+weight: -1
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

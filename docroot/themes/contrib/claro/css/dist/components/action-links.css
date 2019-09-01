@@ -1,0 +1,40 @@
+/**
+ * @file
+ * Styles for link buttons and action links.
+ */
+
+.action-links {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+[dir="rtl"] .action-links {
+  /* This is required to win over specificity of [dir="rtl"] ul */
+  margin-right: 0;
+}
+
+.action-links__item {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+.action-links__item:first-child {
+  margin-left: 0; /* LTR */
+}
+[dir="rtl"] .action-links__item:first-child {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+.action-links__item:last-child {
+  margin-right: 0; /* LTR */
+}
+[dir="rtl"] .action-links__item:last-child {
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+[dir="rtl"] .action-links__item:only-child {
+  margin-right: 0;
+  margin-left: 0;
+}

@@ -1,0 +1,181 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update for Varbase Media module.
+ */
+
+use Symfony\Component\Yaml\Yaml;
+use Drupal\Core\Config\InstallStorage;
+use Drupal\Core\Config\StorageInterface;
+use Drupal\Core\Config\FileStorage;
+use Drupal\file\Entity\File;
+use Drupal\embed\Entity\EmbedButton;
+
+/**
+ * Implements hook_install().
+ */
+function varbase_media_install() {
+
+  $module_name = preg_replace('/_install$/', '', __FUNCTION__);
+  $module_path = Drupal::service('module_handler')->getModule($module_name)->getPath();
+
+  // Processer for install: in [$module_name].info.yml file.
+  // --------------------------------------------------------------------------.
+  $module_info_file = $module_path . '/' . $module_name . '.info.yml';
+  if (file_exists($module_info_file)) {
+    $module_info_data = (array) Yaml::parse(file_get_contents($module_info_file));
+    if (isset($module_info_data['install'])
+      && is_array($module_info_data['install'])) {
+      \Drupal::service('module_installer')->install($module_info_data['install'], TRUE);
+    }
+  }
+
+  // Install optional configs.
+  $optional_install_path = $module_path . '/' . InstallStorage::CONFIG_OPTIONAL_DIRECTORY;
+  if (is_dir($optional_install_path)) {
+    $config_installer = \Drupal::service('config.installer');
+    $config_installer->installDefaultConfig('module', $module_name);
+
+    // Create field storage configs first in active config.
+    $storage_config_files = file_scan_directory($optional_install_path, '/^field.storage.*\\.(yml)$/i');
+    if (isset($storage_config_files) && is_array($storage_config_files)) {
+      foreach ($storage_config_files as $storage_config_file) {
+        $storage_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $storage_config_file->uri);
+        $storage_config_file_data = (array) Yaml::parse($storage_config_file_content);
+        $config_factory = \Drupal::configFactory()->getEditable($storage_config_file->name);
+        $config_factory->setData($storage_config_file_data)->save(TRUE);
+      }
+    }
+
+    // Install any optional config the module provides.
+    $storage = new FileStorage($optional_install_path, StorageInterface::DEFAULT_COLLECTION);
+    $config_installer->installOptionalConfig($storage, '');
+
+    // Have the .settings.yml configs into the active config.
+    $settings_config_files = file_scan_directory($optional_install_path, '/^.*\\.(settings.yml)$/i');
+    if (isset($settings_config_files) && is_array($settings_config_files)) {
+      foreach ($settings_config_files as $settings_config_file) {
+        $settings_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $settings_config_file->uri);
+        $settings_config_file_data = (array) Yaml::parse($settings_config_file_content);
+        $config_factory = \Drupal::configFactory()->getEditable($settings_config_file->name);
+        $config_factory->setData($settings_config_file_data)->save(TRUE);
+      }
+    }
+  }
+  // --------------------------------------------------------------------------.
+  // Configure widgets for entity browser enhanced behaviours.
+  $ebe_widgets_config_files = file_scan_directory($optional_install_path, '/^entity_browser_enhanced.widgets.*\\.(yml)$/i');
+  if (isset($ebe_widgets_config_files)
+    && is_array($ebe_widgets_config_files)) {
+    foreach ($ebe_widgets_config_files as $ebe_widgets_config_file) {
+      $ebe_widgets_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $ebe_widgets_config_file->uri);
+      $ebe_widgets_config_file_data = (array) Yaml::parse($ebe_widgets_config_file_content);
+      $ebe_widgets_config_factory = \Drupal::configFactory()->getEditable($ebe_widgets_config_file->name);
+      $ebe_widgets_config_factory->setData($ebe_widgets_config_file_data)->save(TRUE);
+    }
+  }
+
+  // Ovarride the media liabrary view.
+  $config_path = $optional_install_path . '/' . 'views.view.media_library.yml';
+  $config_content = file_get_contents($config_path);
+  $config_data = (array) Yaml::parse($config_content);
+  $config_factory = \Drupal::configFactory()->getEditable('views.view.media_library');
+  $config_factory->setData($config_data)->save(TRUE);
+
+  // Load Media types icons for the media libraray table view page.
+  $source = $module_path . '/images/icons';
+  $destination = \Drupal::config('media.settings')->get('icon_base_uri');
+  file_prepare_directory($destination, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+
+  $files = file_scan_directory($source, '/.*\.(svg|png|jpg|jpeg|gif)$/');
+  foreach ($files as $file) {
+    if (!file_exists($destination . DIRECTORY_SEPARATOR . $file->filename)) {
+      file_unmanaged_copy($file->uri, $destination, FILE_EXISTS_ERROR);
+    }
+  }
+
+  // Configure Entity Embed buttons.
+  $embed_button_config_files = file_scan_directory($optional_install_path, '/^embed.button.*\\.(yml)$/i');
+  if (isset($embed_button_config_files)
+    && is_array($embed_button_config_files)) {
+    foreach ($embed_button_config_files as $embed_button_config_file) {
+      $embed_button_config_file_content = file_get_contents(DRUPAL_ROOT . '/' . $embed_button_config_file->uri);
+      $embed_button_config_file_data = (array) Yaml::parse($embed_button_config_file_content);
+      $embed_button_config_factory = \Drupal::configFactory()->getEditable($embed_button_config_file->name);
+      $embed_button_config_factory->setData($embed_button_config_file_data)->save(TRUE);
+    }
+  }
+
+  // Add Icons for Entity Embed CKEditor Media Library and Gallery.
+  if (!\Drupal::isConfigSyncing()) {
+
+    $embed_buttons = [
+      // CKEditor Embed Media Library icon for the gallery embed entity button.
+      'media' => [
+        'source' => DRUPAL_ROOT . '/' . $module_path . '/images/ckeditor/hidpi/embed-media.png',
+        'destination' => 'public://embed-media.png',
+      ],
+      // CKEditor Embed Gallery icon for the gallery embed entity button.
+      'gallery' => [
+        'source' => DRUPAL_ROOT . '/' . $module_path . '/images/ckeditor/hidpi/embed-gallery.png',
+        'destination' => 'public://embed-gallery.png',
+      ],
+    ];
+
+    foreach ($embed_buttons as $embed_button_id => $embed_button_info) {
+      $target_destination = NULL;
+      if (version_compare(Drupal::VERSION, '8.7.0', '>=')) {
+        try {
+          $target_destination = Drupal::service('file_system')->copy($embed_button_info['source'], $embed_button_info['destination']);
+        }
+        catch (FileException $e) {
+          $target_destination = FALSE;
+        }
+      }
+      else {
+        $target_destination = call_user_func('file_unmanaged_copy', $embed_button_info['source'], $embed_button_info['destination']);
+      }
+
+      if ($target_destination) {
+        $target_file = File::create(['uri' => $target_destination]);
+        $target_file->save();
+
+        EmbedButton::load($embed_button_id)->set('icon_uuid', $target_file->uuid())->save();
+      }
+      else {
+        return t("Unable to copy @source to the public files directory.", [
+          '@source' => $embed_button_info['source'],
+        ]);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function varbase_media_requirements($phase) {
+  $requirements = [];
+  if ($phase == 'install') {
+    $destination = \Drupal::config('media.settings')->get('icon_base_uri');
+    file_prepare_directory($destination, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+    $is_writable = is_writable($destination);
+    $is_directory = is_dir($destination);
+    if (!$is_writable || !$is_directory) {
+      if (!$is_directory) {
+        $error = t('The directory %directory does not exist.', ['%directory' => $destination]);
+      }
+      else {
+        $error = t('The directory %directory is not writable.', ['%directory' => $destination]);
+      }
+      $description = t('An automated attempt to create this directory failed, possibly due to a permissions problem. To proceed with the installation, either create the directory and modify its permissions manually or ensure that the installer has the permissions to create it automatically. For more information, see INSTALL.txt or the <a href=":handbook_url">online handbook</a>.', [':handbook_url' => 'https://www.drupal.org/server-permissions']);
+      if (!empty($error)) {
+        $description = $error . ' ' . $description;
+        $requirements['varbase_media']['description'] = $description;
+        $requirements['varbase_media']['severity'] = REQUIREMENT_ERROR;
+      }
+    }
+  }
+  return $requirements;
+}

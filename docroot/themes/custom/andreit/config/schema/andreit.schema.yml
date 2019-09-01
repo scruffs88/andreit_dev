@@ -1,0 +1,5 @@
+# Schema for the configuration files of the andreit theme.
+
+andreit.settings:
+  type: theme_settings
+  label: 'andreit settings'

@@ -1,0 +1,23 @@
+uuid: 8eba904b-c13a-4de4-993c-1d155a85cdfe
+langcode: en
+status: false
+dependencies: {  }
+id: staging
+label: Staging
+description: ''
+folder: ../config/splits/staging
+module:
+  dblog: 0
+  shield: 0
+theme: {  }
+blacklist:
+  - environment_indicator.indicator
+  - environment_indicator.settings
+  - system.logging
+  - system.performance
+  - advagg.settings
+  - advagg_js_minify.settings
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

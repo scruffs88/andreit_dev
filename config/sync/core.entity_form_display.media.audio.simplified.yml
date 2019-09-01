@@ -1,0 +1,32 @@
+uuid: 277c85e6-2992-4a4b-815a-1fae082f3a2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.simplified
+    - field.field.media.audio.field_media_audio_file
+    - field.field.media.audio.field_media_in_library
+    - media.type.audio
+  module:
+    - file
+_core:
+  default_config_hash: JmQ-SP62UnpfPorm0SoTy3Ak3yqkBlQNR6UD3e7EB1k
+id: media.audio.simplified
+targetEntityType: media
+bundle: audio
+mode: simplified
+content:
+  field_media_audio_file:
+    weight: 0
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+hidden:
+  created: true
+  field_media_in_library: true
+  name: true
+  path: true
+  status: true
+  uid: true

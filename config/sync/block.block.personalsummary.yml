@@ -1,0 +1,31 @@
+uuid: 69725807-ed05-44a6-80a1-08beede80700
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:d2fd48ce-d234-4acd-a512-5c092adb4f6b'
+  module:
+    - block_content
+    - system
+  theme:
+    - andreit
+id: personalsummary
+theme: andreit
+region: slide1
+weight: 0
+provider: null
+plugin: 'block_content:d2fd48ce-d234-4acd-a512-5c092adb4f6b'
+settings:
+  id: 'block_content:d2fd48ce-d234-4acd-a512-5c092adb4f6b'
+  label: 'Personal Summary'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }
