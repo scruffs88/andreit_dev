@@ -1,3 +1,15 @@
+loading-wrapper:
+  version: VERSION
+  css:
+    theme:
+      lib/loading_screen/loading.css: {}
+
+  js:
+    lib/loading_screen/loading.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+
 style:
   version: VERSION
   css:
@@ -17,3 +29,8 @@ slider:
   dependencies:
     - core/jquery
     - core/drupal
+
+
+
+
+

@@ -20,6 +20,7 @@ regions:
   footer: Footer
 
 libraries:
+  - andreit/loading-wrapper
   - radix/style
   - andreit/style
   - andreit/slider

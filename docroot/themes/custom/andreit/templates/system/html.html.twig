@@ -30,18 +30,45 @@
     <title>{{ head_title|safe_join(' | ') }}</title>
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">
+
+      {#  Loader Screen Script
+       <style>
+        #page{
+            display: none;
+        }
+        #loading{
+            display: block;
+        }
+    </style>
+    <script>
+        function myFunction()
+        {
+            document.getElementById("page").style.display = "block";
+            document.getElementById("loading").style.display = "none";
+        }
+    </script>
+    #}
+
+
   </head>
+
   <body{{ attributes }}>
     {#
       Keyboard navigation/accessibility link to main content section in
       page.html.twig.
     #}
+    <div id="loading-wrapper">
+      <div id="loading-text">LOADING</div>
+      <div id="loading-content"></div>
+    </div>
     <a href="#main-content" class="visually-hidden focusable">
       {{ 'Skip to main content'|t }}
     </a>
-    {{ page_top }}
-    {{ page }}
-    {{ page_bottom }}
+    <div class="web-content">
+      {{ page_top }}
+      {{ page }}
+      {{ page_bottom }}
+    </div>
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">
   </body>
 </html>

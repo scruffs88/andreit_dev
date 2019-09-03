@@ -35,7 +35,6 @@ var slider = function (sliderElement) {
       if (isChanging) {
         setTimeout(function() {
           isChanging = false;
-          window.location.hash = document.querySelector('[data-slider-index="' + currentSlide + '"]').id;
         }, 400);
       }
     });
