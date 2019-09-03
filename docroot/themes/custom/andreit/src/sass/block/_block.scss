@@ -1,13 +1,30 @@
 .block--personalsummary{
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%,-50%);
+  top: 44%;
+  transform: translate(-50%, -50%);
   color: white;
-  padding: 25px;
+  padding:70px 40px;
   background: rgba(10, 36, 53, 0.49);
+  width:100%;
+  max-width: 600px;
+  .highlight{
+    color: #84da73;
+  }
 }
+.block--webform{
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translate(-50%,-50%);
+  color: #b8c1c6;
+  padding:70px 40px;
+  font-weight: bold;
+  min-width: fit-content;
+}
+
 .block--firstslide{
+  padding:70px 40px;
   position: absolute;
   left: 50%;
   top: 56%;
@@ -16,13 +33,31 @@
   width: 100%;
   background: #0c273a70;
   text-align: center;
-  h1{
-    font-size: 4.5rem;
-  }
   h2{
-    font-size: 3rem;
+    font-weight: 200;
+    font-size: 32pt;
+    line-height: 36pt;
   }
   h3{
-    font-size: 2rem;
+    font-weight: 200;
+    font-size: 24pt;
+    line-height: 36pt;
+  }
+  .highlight{
+    color:#84da73;
   }
 }
+/* Media Queries */
+@media only screen and (max-width : 991px) {
+  .block--firstslide{
+    top: 35%;
+
+    h2{
+    font-size: 2rem;
+  }
+    h3{
+    font-size: 1.5rem;
+  }
+  }
+}
+

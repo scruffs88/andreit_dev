@@ -19,7 +19,7 @@ settings:
   id: 'block_content:d2fd48ce-d234-4acd-a512-5c092adb4f6b'
   label: 'Personal Summary'
   provider: block_content
-  label_display: visible
+  label_display: '0'
   status: true
   info: ''
   view_mode: full
