@@ -1,1 +1,276 @@
-!function(e){var t={};function n(o){if(t[o])return t[o].exports;var r=t[o]={i:o,l:!1,exports:{}};return e[o].call(r.exports,r,r.exports,n),r.l=!0,r.exports}n.m=e,n.c=t,n.d=function(e,t,o){n.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:o})},n.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},n.t=function(e,t){if(1&t&&(e=n(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var o=Object.create(null);if(n.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var r in e)n.d(o,r,function(t){return e[t]}.bind(null,r));return o},n.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return n.d(t,"a",t),t},n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},n.p="/",n(n.s=6)}({6:function(e,t,n){e.exports=n(7)},7:function(e,t){var n,o,r,i,d,a,c,u,l,s;n=".slides",o=[],r=1,i=!1,d={38:1,33:1},a={40:1,34:1},c=function(){document.body.classList.add("slider__body"),whatWheel="onwheel"in document.createElement("div")?"wheel":void 0!==document.onmousewheel?"mousewheel":"DOMMouseScroll",window.addEventListener(whatWheel,function(e){var t=e.wheelDelta||e.deltaY;l(t>0?-1:1)}),window.addEventListener("keydown",function(e){d[e.keyCode]?l(-1):a[e.keyCode]&&l(1)}),u()&&document.querySelector(n).addEventListener(u(),function(){i&&setTimeout(function(){i=!1},400)}),document.querySelector(n).classList.add("slider__container");var e=document.createElement("div");e.classList.add("slider__indicators");var t=1;[].forEach.call(document.querySelectorAll(n+" > *"),function(n){var r=document.createElement("a");r.classList.add("slider__indicator"),r.setAttribute("data-slider-target-index",t),e.appendChild(r),n.classList.add("slider__page"),o.push(n),n.setAttribute("data-slider-index",t++)}),document.body.appendChild(e),document.querySelector('a[data-slider-target-index = "'+r+'"]').classList.add("slider__indicator--active");var c=0,s=0;document.addEventListener("touchstart",function(e){if(e.preventDefault(),"touchstart"==e.type||"touchmove"==e.type||"touchend"==e.type||"touchcancel"==e.type){var t=e.touches[0]||e.changedTouches[0];c=t.pageY}}),document.addEventListener("touchend",function(e){if(e.preventDefault(),"touchstart"==e.type||"touchmove"==e.type||"touchend"==e.type||"touchcancel"==e.type){var t=e.touches[0]||e.changedTouches[0];s=t.pageY}c+90<s?l(-1):c>s+90&&l(1)})},u=function(){var e,t=document.createElement("foobar"),n={transition:"transitionend",OTransition:"oTransitionEnd",MozTransition:"transitionend",WebkitTransition:"webkitTransitionEnd"};for(e in n)if(void 0!==t.style[e])return n[e];return!0},l=function(e){i||1==e&&r==o.length||-1==e&&1==r||(r+=e,i=!0,function(e,t){for(var n in t)void 0!==e.style[n]&&(e.style[n]=t[n])}(document.querySelector(n),{transform:"translate3d(0, "+100*-(r-1)+"%, 0)"}),document.querySelector("a.slider__indicator--active").classList.remove("slider__indicator--active"),document.querySelector('a[data-slider-target-index="'+r+'"]').classList.add("slider__indicator--active"))},s=function(e){var t=document.querySelector(e).getAttribute("data-slider-index");t!=r&&document.querySelector(e)&&l(t-r)},location.hash&&setTimeout(function(){window.scrollTo(0,0),s(location.hash)},1),"complete"===document.readyState?c():window.addEventListener("onload",c(),!1)}});
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src/js/slider.js":
+/*!**************************!*\
+  !*** ./src/js/slider.js ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var slider = function slider(sliderElement) {
+  var pages = [];
+  var currentSlide = 1;
+  var isChanging = false;
+  var keyUp = {
+    38: 1,
+    33: 1
+  };
+  var keyDown = {
+    40: 1,
+    34: 1
+  };
+
+  var init = function init() {
+    document.body.classList.add('slider__body'); // control scrolling
+
+    whatWheel = 'onwheel' in document.createElement('div') ? 'wheel' : document.onmousewheel !== undefined ? 'mousewheel' : 'DOMMouseScroll';
+    window.addEventListener(whatWheel, function (e) {
+      var direction = e.wheelDelta || e.deltaY;
+
+      if (direction > 0) {
+        changeSlide(-1);
+      } else {
+        changeSlide(1);
+      }
+    }); // allow keyboard input
+
+    window.addEventListener('keydown', function (e) {
+      if (keyUp[e.keyCode]) {
+        changeSlide(-1);
+      } else if (keyDown[e.keyCode]) {
+        changeSlide(1);
+      }
+    }); // page change animation is done
+
+    detectChangeEnd() && document.querySelector(sliderElement).addEventListener(detectChangeEnd(), function () {
+      if (isChanging) {
+        setTimeout(function () {
+          isChanging = false;
+        }, 400);
+      }
+    }); // set up page and build visual indicators
+
+    document.querySelector(sliderElement).classList.add('slider__container');
+    var indicatorContainer = document.createElement('div');
+    indicatorContainer.classList.add('slider__indicators');
+    var index = 1;
+    [].forEach.call(document.querySelectorAll(sliderElement + ' > *'), function (section) {
+      var indicator = document.createElement('a');
+      indicator.classList.add('slider__indicator');
+      indicator.setAttribute('data-slider-target-index', index);
+      indicatorContainer.appendChild(indicator);
+      section.classList.add('slider__page');
+      pages.push(section);
+      section.setAttribute('data-slider-index', index++);
+    });
+    document.body.appendChild(indicatorContainer);
+    document.querySelector('a[data-slider-target-index = "' + currentSlide + '"]').classList.add('slider__indicator--active'); // stuff for touch devices
+
+    var touchStartPos = 0;
+    var touchStopPos = 0;
+    var touchMinLength = 90;
+    document.addEventListener('touchstart', function (e) {
+      e.preventDefault();
+
+      if (e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel') {
+        var touch = e.touches[0] || e.changedTouches[0];
+        touchStartPos = touch.pageY;
+      }
+    });
+    document.addEventListener('touchend', function (e) {
+      e.preventDefault();
+
+      if (e.type == 'touchstart' || e.type == 'touchmove' || e.type == 'touchend' || e.type == 'touchcancel') {
+        var touch = e.touches[0] || e.changedTouches[0];
+        touchStopPos = touch.pageY;
+      }
+
+      if (touchStartPos + touchMinLength < touchStopPos) {
+        changeSlide(-1);
+      } else if (touchStartPos > touchStopPos + touchMinLength) {
+        changeSlide(1);
+      }
+    });
+  }; // prevent double scrolling
+
+
+  var detectChangeEnd = function detectChangeEnd() {
+    var transition;
+    var e = document.createElement('foobar');
+    var transitions = {
+      'transition': 'transitionend',
+      'OTransition': 'oTransitionEnd',
+      'MozTransition': 'transitionend',
+      'WebkitTransition': 'webkitTransitionEnd'
+    };
+
+    for (transition in transitions) {
+      if (e.style[transition] !== undefined) {
+        return transitions[transition];
+      }
+    }
+
+    return true;
+  }; // handle css change
+
+
+  var changeCss = function changeCss(obj, styles) {
+    for (var _style in styles) {
+      if (obj.style[_style] !== undefined) {
+        obj.style[_style] = styles[_style];
+      }
+    }
+  }; // handle page/section change
+
+
+  var changeSlide = function changeSlide(direction) {
+    // already doing it or last/first page, staph plz
+    if (isChanging || direction == 1 && currentSlide == pages.length || direction == -1 && currentSlide == 1) {
+      return;
+    } // change page
+
+
+    currentSlide += direction;
+    isChanging = true;
+    changeCss(document.querySelector(sliderElement), {
+      transform: 'translate3d(0, ' + -(currentSlide - 1) * 100 + '%, 0)'
+    }); // change dots
+
+    document.querySelector('a.slider__indicator--active').classList.remove('slider__indicator--active');
+    document.querySelector('a[data-slider-target-index="' + currentSlide + '"]').classList.add('slider__indicator--active');
+  }; // go to spesific slide if it exists
+
+
+  var gotoSlide = function gotoSlide(where) {
+    var target = document.querySelector(where).getAttribute('data-slider-index');
+
+    if (target != currentSlide && document.querySelector(where)) {
+      changeSlide(target - currentSlide);
+    }
+  }; // if page is loaded with hash, go to slide
+
+
+  if (location.hash) {
+    setTimeout(function () {
+      window.scrollTo(0, 0);
+      gotoSlide(location.hash);
+    }, 1);
+  }
+
+  ; // we have lift off
+
+  if (document.readyState === 'complete') {
+    init();
+  } else {
+    window.addEventListener('onload', init(), false);
+  } // expose gotoSlide function
+
+
+  return {
+    gotoSlide: gotoSlide
+  };
+};
+
+var mySlider = slider('.slides');
+
+/***/ }),
+
+/***/ 1:
+/*!********************************!*\
+  !*** multi ./src/js/slider.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! /var/www/drupalvm/andreit_1.0_dev/docroot/themes/custom/andreit/src/js/slider.js */"./src/js/slider.js");
+
+
+/***/ })
+
+/******/ });

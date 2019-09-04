@@ -214,7 +214,7 @@ class AssetManager {
    */
   // @codingStandardsIgnoreLine
   public static function getCKEditorLibraryPluginPath() {
-    return 'profiles/varbase/libraries/ckeditor/plugins/';
+    return 'libraries/ckeditor/plugins/';
   }
 
   /**
@@ -228,7 +228,7 @@ class AssetManager {
    */
   // @codingStandardsIgnoreLine
   public static function getCKEditorLibraryPluginDirectory() {
-    return \Drupal::root() . '/profiles/varbase/libraries/ckeditor/plugins/';
+    return \Drupal::root() . '/libraries/ckeditor/plugins/';
   }
 
   /**

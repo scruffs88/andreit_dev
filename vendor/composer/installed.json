@@ -2530,17 +2530,17 @@
     },
     {
         "name": "drupal/core",
-        "version": "8.7.6",
-        "version_normalized": "8.7.6.0",
+        "version": "8.7.7",
+        "version_normalized": "8.7.7.0",
         "source": {
             "type": "git",
             "url": "https://github.com/drupal/core.git",
-            "reference": "39164616332832e1456199d32fc3ed11562f4721"
+            "reference": "32e1d7a67bbc28f07dc43d9ff692c0e90a4aeb92"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/drupal/core/zipball/39164616332832e1456199d32fc3ed11562f4721",
-            "reference": "39164616332832e1456199d32fc3ed11562f4721",
+            "url": "https://api.github.com/repos/drupal/core/zipball/32e1d7a67bbc28f07dc43d9ff692c0e90a4aeb92",
+            "reference": "32e1d7a67bbc28f07dc43d9ff692c0e90a4aeb92",
             "shasum": ""
         },
         "require": {
@@ -2590,7 +2590,8 @@
             "zendframework/zend-feed": "^2.4"
         },
         "conflict": {
-            "drush/drush": "<8.1.10"
+            "drush/drush": "<8.1.10",
+            "symfony/dom-crawler": ">=4"
         },
         "replace": {
             "drupal/action": "self.version",
@@ -2717,7 +2718,7 @@
             "symfony/debug": "^3.4.0",
             "symfony/phpunit-bridge": "^3.4.3"
         },
-        "time": "2019-08-07T19:19:20+00:00",
+        "time": "2019-09-04T10:26:35+00:00",
         "type": "drupal-core",
         "extra": {
             "merge-plugin": {
@@ -6515,104 +6516,6 @@
         "support": {
             "source": "http://cgit.drupalcode.org/userprotect",
             "issues": "https://www.drupal.org/project/issues/userprotect"
-        }
-    },
-    {
-        "name": "drupal/varbase_editor",
-        "version": "7.1.0",
-        "version_normalized": "7.1.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://git.drupalcode.org/project/varbase_editor.git",
-            "reference": "8.x-7.1"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/varbase_editor-8.x-7.1.zip",
-            "reference": "8.x-7.1",
-            "shasum": "27f080064a654b0fa82fa46f92561672db83089f"
-        },
-        "require": {
-            "composer/installers": "~1.0",
-            "cweagans/composer-patches": "~1.0",
-            "drupal/ace_editor": "~1.0",
-            "drupal/anchor_link": "~1.0",
-            "drupal/ckeditor_bidi": "~2.0",
-            "drupal/ckeditor_media_embed": "~1.0",
-            "drupal/core": "*",
-            "drupal/drupal-library-installer-plugin": "^0.3",
-            "drupal/extlink": "~1.0",
-            "drupal/image_resize_filter": "~1.0",
-            "drupal/linkit": "~4.0",
-            "drupal/pathologic": "~1.0",
-            "npm-asset/ace-builds": "~1.0",
-            "oomphinc/composer-installers-extender": "~1.0"
-        },
-        "type": "drupal-module",
-        "extra": {
-            "branch-alias": {
-                "dev-7.x": "7.x-dev",
-                "dev-8.x-7.x": "8.7.x-dev"
-            },
-            "drupal": {
-                "version": "8.x-7.1",
-                "datestamp": "1566979985",
-                "security-coverage": {
-                    "status": "covered",
-                    "message": "Covered by Drupal's security advisory policy"
-                }
-            },
-            "installer-types": [
-                "bower-asset",
-                "npm-asset"
-            ],
-            "installer-paths": {
-                "libraries/ace": [
-                    "npm-asset/ace-builds"
-                ],
-                "libraries/{$name}": [
-                    "type:drupal-library",
-                    "type:bower-asset",
-                    "type:npm-asset"
-                ]
-            },
-            "drupal-libraries": {
-                "libraries": [
-                    {
-                        "name": "ace",
-                        "package": "npm-asset/ace-builds"
-                    }
-                ]
-            },
-            "enable-patching": true,
-            "composer-exit-on-patch-failure": true,
-            "patches": {
-                "drupal/ckeditor_media_embed": {
-                    "Issue #2900313: Add ability to embed tweets and other rich content in WYSIWYG": "https://www.drupal.org/files/issues/embed_rich_content_in_WYSIWYG-2900313-2.patch"
-                }
-            }
-        },
-        "installation-source": "dist",
-        "notification-url": "https://packages.drupal.org/8/downloads",
-        "license": [
-            "GPL-2.0-or-later"
-        ],
-        "authors": [
-            {
-                "name": "Vardot",
-                "homepage": "https://www.drupal.org/vardot",
-                "role": "Maintainer"
-            },
-            {
-                "name": "RajabNatshah",
-                "homepage": "https://www.drupal.org/user/1414312"
-            }
-        ],
-        "description": "Editor profile and settings to be used in most websites.",
-        "homepage": "https://www.drupal.org/project/varbase_editor",
-        "support": {
-            "source": "http://cgit.drupalcode.org/varbase_editor",
-            "issues": "http://drupal.org/project/issues/varbase_editor"
         }
     },
     {

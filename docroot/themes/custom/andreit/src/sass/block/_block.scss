@@ -44,6 +44,9 @@
     position: absolute;
     top: 6%;
     left: 36%;
+    font-weight: 200;
+    font-size: 28pt;
+    line-height: 5pt;
 
   }
 }
@@ -154,6 +157,15 @@
   }
   .block--personalsummary {
     top: 41%;
+    h5{
+      font-weight: 200;
+      font-size: 17pt;
+      line-height: 38pt;
+    }
+
+  }
+  .block--webform{
+    background: padding-box;
   }
   .page-node-1{
     .page__header-top{
