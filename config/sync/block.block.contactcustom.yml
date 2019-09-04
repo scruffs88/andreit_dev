@@ -1,0 +1,31 @@
+uuid: 8cb10d6c-a5d2-44b9-b14f-4c6278b6077e
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:contact:b15d5b73-081e-40d8-aa2b-677ab305ddcf'
+  module:
+    - block_content
+    - system
+  theme:
+    - andreit
+id: contactcustom
+theme: andreit
+region: slide2
+weight: 0
+provider: null
+plugin: 'block_content:b15d5b73-081e-40d8-aa2b-677ab305ddcf'
+settings:
+  id: 'block_content:b15d5b73-081e-40d8-aa2b-677ab305ddcf'
+  label: 'Contact Custom'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

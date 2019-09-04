@@ -1,0 +1,10 @@
+uuid: 02781708-2966-4c5a-b124-77324e92d308
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.custom_
+label: 'Custom contact 1'
+targetEntityType: block_content
+cache: true
